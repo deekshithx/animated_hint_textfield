@@ -47,7 +47,7 @@ Currently this package supports 3 animations, more animations will be added in t
 
 ## Slide
 
-<img src="https://github.com/deekshithx/animated-hint-textfield/blob/master/showcase/slide.gif?raw=true" align = "right" height = "300px">
+<img src="https://github.com/deekshithx/animated_hint_textfield/blob/master/showcase/slide.gif?raw=true" align = "top" height = "100px">
 
 ```dart
 AnimatedTextField(
@@ -78,7 +78,7 @@ AnimatedTextField(
 
 ## Fade
 
-<img src="https://github.com/deekshithx/animated-hint-textfield/blob/master/showcase/fade.gif?raw=true" align = "right" height = "300px">
+<img src="https://github.com/deekshithx/animated_hint_textfield/blob/master/showcase/fade.gif?raw=true" align = "top" height = "100px">
 
 ```dart
 AnimatedTextField(
@@ -107,7 +107,7 @@ AnimatedTextField(
 
 ## Typer
 
-<img src="https://github.com/deekshithx/animated-hint-textfield/blob/master/showcase/typer.gif?raw=true" align = "right" height = "300px">
+<img src="https://github.com/deekshithx/animated_hint_textfield/blob/master/showcase/typer.gif?raw=true" align = "top" height = "100px">
 
 ```dart
 AnimatedTextField(
