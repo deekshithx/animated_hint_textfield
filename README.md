@@ -1,39 +1,138 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+<h1 align="center">Animated Hint TextField</h1>
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages).
+<p align="center">A Flutter package designed to animate the label/hint text of a textfield, providing suggestive guidance to the user regarding what to input. Try out our <a href="https://animated-hint.technexi.com/">example app</a>.</p><br>
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages).
--->
+# Installing
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+### 1. Depend on it
 
-## Features
+Add this to your package's `pubspec.yaml` file:
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
-
-## Getting started
-
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
-
-## Usage
-
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
-
-```dart
-const like = 'sample';
+```yaml
+dependencies:
+  animated_hint_textfield: ^1.0.0
 ```
 
-## Additional information
+### 2. Install it
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+You can install packages from the command line:
+
+with `pub`:
+
+```
+$ pub get
+```
+
+with `Flutter`:
+
+```
+$ flutter pub get
+```
+
+### 3. Import it
+
+Now in your `Dart` code, you can use:
+
+```dart
+import 'package:animated_hint_textfield/animated_hint_textfield.dart';
+```
+
+
+
+
+<br><br>
+# Animations
+
+Currently this package supports 3 animations, more animations will be added in the future.
+
+## Slide
+
+<img src="https://github.com/deekshithx/animated-hint-textfield/blob/master/showcase/slide.gif?raw=true" align = "right" height = "300px">
+
+```dart
+AnimatedTextField(
+  decoration: InputDecoration(
+    prefixIcon: Icon(Icons.search),
+    border: OutlineInputBorder(
+      borderSide: BorderSide(color: Colors.red, width: 2,
+      ),
+      borderRadius: BorderRadius.circular(4),
+    ),
+    focusedBorder: OutlineInputBorder(
+      borderSide: BorderSide(color: Colors.black, width: 2,
+      ),
+      borderRadius: BorderRadius.circular(4),
+    ),
+    contentPadding: EdgeInsets.all(12),
+  ),
+  animationType: Animationtype.slide,
+  hintTexts: [
+    'Search for "Bengaluru"',
+    'Search for "Mumbai"',
+    'Search for "Chennai"',
+  ],
+);
+```
+
+
+
+## Fade
+
+<img src="https://github.com/deekshithx/animated-hint-textfield/blob/master/showcase/fade.gif?raw=true" align = "right" height = "300px">
+
+```dart
+AnimatedTextField(
+  decoration: InputDecoration(
+    prefixIcon: Icon(Icons.search),
+    border: OutlineInputBorder(
+      borderSide: BorderSide(color: Colors.red, width: 2,
+      ),
+      borderRadius: BorderRadius.circular(4),
+    ),
+    focusedBorder: OutlineInputBorder(
+      borderSide: BorderSide(color: Colors.black, width: 2,
+      ),
+      borderRadius: BorderRadius.circular(4),
+    ),
+    contentPadding: EdgeInsets.all(12),
+  ),
+  animationType: Animationtype.fade,
+  hintTexts: [
+    'Search for "Bengaluru"',
+    'Search for "Mumbai"',
+    'Search for "Chennai"',
+  ],
+);
+```
+
+## Typer
+
+<img src="https://github.com/deekshithx/animated-hint-textfield/blob/master/showcase/typer.gif?raw=true" align = "right" height = "300px">
+
+```dart
+AnimatedTextField(
+  animationType: Animationtype.typer,
+  hintTextStyle: const TextStyle(
+    color: Colors.deepPurple,
+    overflow: TextOverflow.ellipsis,
+  ),
+  hintTexts: const [
+    'How is the weather today?',
+    'Will it rain today?',
+    'What is the temperature',
+  ],
+  decoration: InputDecoration(
+    suffixIcon: const Icon(Icons.search),
+    filled: true,
+    border: OutlineInputBorder(
+      borderSide: const BorderSide(color: Colors.red, width: 2),
+      borderRadius: BorderRadius.circular(25),
+    ),
+    focusedBorder: OutlineInputBorder(
+      borderSide: const BorderSide(color: Colors.black, width: 2),
+      borderRadius: BorderRadius.circular(25),
+    ),
+    contentPadding: const EdgeInsets.all(12),
+  ),
+);
+```
