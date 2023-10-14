@@ -1,6 +1,6 @@
 <h1 align="center">Animated Hint TextField</h1>
 
-<p align="center">A Flutter package designed to animate the label/hint text of a textfield, providing suggestive guidance to the user regarding what to input. Try out our <a href="https://animated-hint.technexi.com/">example app</a>.</p><br>
+<p align="center">A Flutter package designed to animate the label/hint text of a textfield, providing suggestive guidance to the user regarding what to input. Try out our <a href="https://deekshithx.github.io/animated_hint_textfield/">example app</a>.</p><br>
 
 # Installing
 

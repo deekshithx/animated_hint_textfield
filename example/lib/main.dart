@@ -117,6 +117,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 hintTexts: const [
                   'Pay friends and merchants',
                   'Pay by number or UPI ID',
+                  'Pay by account number'
                 ],
                 decoration: const InputDecoration(
                   border: InputBorder.none,
