@@ -1,7 +1,15 @@
+[![pub package](https://img.shields.io/pub/v/animated_hint_textfield.svg)](https://pub.dev/packages/animated_hint_textfield)
+[![pub points](https://img.shields.io/pub/points/animated_hint_textfield?color=2E8B57&label=pub%20points)](https://pub.dev/packages/animated_hint_textfield/score)
+
 <h1 align="center">Animated Hint TextField</h1>
 
 <p align="center">A Flutter package designed to animate the label/hint text of a textfield, providing suggestive guidance to the user regarding what to input. Try out our <a href="https://deekshithx.github.io/animated_hint_textfield/">example app</a>.</p><br>
 
+# Platform Support
+| Android | iOS | MacOS | Web | Linux | Windows |
+| :-----: | :-: | :---: | :-: | :---: | :----: |
+|   ✅    | ✅  |  ✅   | ✅  |  ✅   |   ✅   |
+<br><br>
 # Installing
 
 ### 1. Depend on it
@@ -51,6 +59,7 @@ Currently this package supports 3 animations, more animations will be added in t
 
 ```dart
 AnimatedTextField(
+  animationType: Animationtype.slide, // Use Animationtype.slide for Slide animations
   decoration: InputDecoration(
     prefixIcon: Icon(Icons.search),
     border: OutlineInputBorder(
@@ -65,7 +74,6 @@ AnimatedTextField(
     ),
     contentPadding: EdgeInsets.all(12),
   ),
-  animationType: Animationtype.slide,
   hintTexts: [
     'Search for "Bengaluru"',
     'Search for "Mumbai"',
@@ -82,6 +90,7 @@ AnimatedTextField(
 
 ```dart
 AnimatedTextField(
+  animationType: Animationtype.fade, // Use Animationtype.fade for Fade animations
   decoration: InputDecoration(
     prefixIcon: Icon(Icons.search),
     border: OutlineInputBorder(
@@ -96,7 +105,6 @@ AnimatedTextField(
     ),
     contentPadding: EdgeInsets.all(12),
   ),
-  animationType: Animationtype.fade,
   hintTexts: [
     'Search for "Bengaluru"',
     'Search for "Mumbai"',
@@ -111,7 +119,7 @@ AnimatedTextField(
 
 ```dart
 AnimatedTextField(
-  animationType: Animationtype.typer,
+  animationType: Animationtype.typer, // Use Animationtype.typer for Type Write Style animations
   hintTextStyle: const TextStyle(
     color: Colors.deepPurple,
     overflow: TextOverflow.ellipsis,

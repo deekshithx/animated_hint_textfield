@@ -14,6 +14,7 @@ class AnimatedTextField extends StatefulWidget {
     this.hintTextAlign = TextAlign.start,
     this.hintTextStyle,
     this.animationType = Animationtype.fade,
+    this.animationDuration = const Duration(milliseconds: 1800),
     this.focusNode,
     this.undoController,
     this.decoration = const InputDecoration(),
@@ -107,8 +108,20 @@ class AnimatedTextField extends StatefulWidget {
   final List<String> hintTexts;
   final TextMagnifierConfiguration? magnifierConfiguration;
   TextEditingController? controller;
+
+  /// Defaults to 1.8 seconds
+  final Duration animationDuration;
+
+  ///Type of the label animation.
+  ///
+  ///```dart
+  /// Animation.slide, Animation.type, Animation.fade
+  /// ```
   final Animationtype animationType;
+
   final TextAlign hintTextAlign;
+
+  ///TextStyle for animated label/hint.
   final TextStyle? hintTextStyle;
 
   /// Defines the keyboard focus for this widget.
@@ -651,6 +664,7 @@ class _AnimatedTextFieldState extends State<AnimatedTextField> {
           } else {
             return FadeAnimatedText(
               text,
+              duration: widget.animationDuration,
               textAlign: widget.hintTextAlign,
               textStyle: widget.hintTextStyle,
             );
