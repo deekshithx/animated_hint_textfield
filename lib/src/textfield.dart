@@ -539,10 +539,10 @@ class AnimatedTextField extends StatefulWidget {
   final SpellCheckConfiguration? spellCheckConfiguration;
 
   @override
-  _AnimatedTextFieldState createState() => _AnimatedTextFieldState();
+  AnimatedTextFieldState createState() => AnimatedTextFieldState();
 }
 
-class _AnimatedTextFieldState extends State<AnimatedTextField> {
+class AnimatedTextFieldState extends State<AnimatedTextField> {
   final ValueNotifier<String> inputValue = ValueNotifier<String>('');
   final ValueNotifier<bool> showHintValue = ValueNotifier<bool>(true);
 
