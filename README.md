@@ -6,10 +6,13 @@
 <p align="center">A Flutter package designed to animate the label/hint text of a textfield, providing suggestive guidance to the user regarding what to input. Try out our <a href="https://deekshithx.github.io/animated_hint_textfield/">example app</a>.</p><br>
 
 # Platform Support
+
 | Android | iOS | MacOS | Web | Linux | Windows |
-| :-----: | :-: | :---: | :-: | :---: | :----: |
-|   ✅    | ✅  |  ✅   | ✅  |  ✅   |   ✅   |
+| :-----: | :-: | :---: | :-: | :---: | :-----: |
+|   ✅    | ✅  |  ✅   | ✅  |  ✅   |   ✅    |
+
 <br><br>
+
 # Installing
 
 ### 1. Depend on it
@@ -45,10 +48,8 @@ Now in your `Dart` code, you can use:
 import 'package:animated_hint_textfield/animated_hint_textfield.dart';
 ```
 
-
-
-
 <br><br>
+
 # Animations
 
 Currently this package supports 3 animations, more animations will be added in the future.
@@ -81,8 +82,6 @@ AnimatedTextField(
   ],
 );
 ```
-
-
 
 ## Fade
 
