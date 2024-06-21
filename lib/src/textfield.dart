@@ -542,7 +542,7 @@ class AnimatedTextField extends StatefulWidget {
   final String? initialValue;
   final void Function(String?)? onSaved;
   final bool onTapAlwaysCalled;
-  final MaterialStatesController? statesController;
+  final WidgetStatesController? statesController;
   final String? Function(String?)? validator;
 
   static Widget _defaultContextMenuBuilder(
