@@ -74,6 +74,13 @@ class AnimatedTextField extends StatefulWidget {
     this.canRequestFocus = true,
     this.spellCheckConfiguration,
     this.magnifierConfiguration,
+    this.autovalidateMode,
+    this.cursorErrorColor,
+    this.initialValue,
+    this.onSaved,
+    this.onTapAlwaysCalled = false,
+    this.statesController,
+    this.validator,
   })  : assert(obscuringCharacter.length == 1),
         smartDashesType = smartDashesType ??
             (obscureText ? SmartDashesType.disabled : SmartDashesType.enabled),
@@ -530,6 +537,14 @@ class AnimatedTextField extends StatefulWidget {
   /// {@macro flutter.widgets.undoHistory.controller}
   final UndoHistoryController? undoController;
 
+  final AutovalidateMode? autovalidateMode;
+  final Color? cursorErrorColor;
+  final String? initialValue;
+  final void Function(String?)? onSaved;
+  final bool onTapAlwaysCalled;
+  final MaterialStatesController? statesController;
+  final String? Function(String?)? validator;
+
   static Widget _defaultContextMenuBuilder(
           BuildContext context, EditableTextState editableTextState) =>
       AdaptiveTextSelectionToolbar.editableText(
@@ -560,7 +575,16 @@ class AnimatedTextFieldState extends State<AnimatedTextField> {
   }
 
   @override
-  Widget build(BuildContext context) => TextField(
+  Widget build(BuildContext context) => TextFormField(
+        autovalidateMode: widget.autovalidateMode,
+        cursorErrorColor: widget.cursorErrorColor,
+        initialValue: widget.initialValue,
+        key: widget.key,
+        onSaved: widget.onSaved,
+        onTapAlwaysCalled: widget.onTapAlwaysCalled,
+        statesController: widget.statesController,
+        undoController: widget.undoController,
+        validator: widget.validator,
         controller: widget.controller,
         focusNode: widget.focusNode,
         decoration: _buildInputDecoration(),
@@ -588,7 +612,7 @@ class AnimatedTextFieldState extends State<AnimatedTextField> {
         maxLengthEnforcement: widget.maxLengthEnforcement,
         onChanged: widget.onChanged,
         onEditingComplete: widget.onEditingComplete,
-        onSubmitted: widget.onSubmitted,
+        onFieldSubmitted: widget.onSubmitted,
         onAppPrivateCommand: widget.onAppPrivateCommand,
         inputFormatters: widget.inputFormatters,
         enabled: widget.enabled,
