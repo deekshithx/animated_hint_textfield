@@ -421,14 +421,14 @@ class AnimatedTextField extends StatefulWidget {
   /// widget.
   ///
   /// If [mouseCursor] is a [MaterialStateProperty<MouseCursor>],
-  /// [MaterialStateProperty.resolve] is used for the following [MaterialState]s:
+  /// [WidgetStateProperty.resolve] is used for the following [WidgetState]s:
   ///
-  ///  * [MaterialState.error].
-  ///  * [MaterialState.hovered].
-  ///  * [MaterialState.focused].
-  ///  * [MaterialState.disabled].
+  ///  * [WidgetState.error].
+  ///  * [WidgetState.hovered].
+  ///  * [WidgetState.focused].
+  ///  * [WidgetState.disabled].
   ///
-  /// If this property is null, [MaterialStateMouseCursor.textable] will be used.
+  /// If this property is null, [WidgetStateMouseCursor.textable] will be used.
   ///
   /// The [mouseCursor] is the only property of [TextField] that controls the
   /// appearance of the mouse pointer. All other properties related to "cursor"
@@ -651,12 +651,16 @@ class AnimatedTextFieldState extends State<AnimatedTextField> {
           if (widget.animationType == Animationtype.typer) {
             return TyperAnimatedText(
               text,
+              speed: Duration(
+                  milliseconds:
+                      widget.animationDuration.inMilliseconds ~/ text.length),
               textAlign: widget.hintTextAlign,
               textStyle: widget.hintTextStyle,
             );
           } else if (widget.animationType == Animationtype.slide) {
             return RotateAnimatedText(
               text,
+              duration: widget.animationDuration,
               alignment: Alignment.centerLeft,
               textAlign: widget.hintTextAlign,
               textStyle: widget.hintTextStyle,

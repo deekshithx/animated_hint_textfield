@@ -1,11 +1,11 @@
 name: animated_hint_textfield
 description: Flutter package for animating textfield hint/label text, adding dynamic and eye-catching transitions to enhance user experience.
-version: 1.0.1
+version: 1.0.2
 homepage: https://github.com/deekshithx/animated_hint_textfield/
 maintainer: Deekshith Shetty
 
 environment:
-  sdk: '>=3.1.1 <4.0.0'
+  sdk: ">=3.1.1 <4.0.0"
   flutter: ">=1.17.0"
 
 dependencies:
@@ -18,7 +18,4 @@ dev_dependencies:
     sdk: flutter
   flutter_lints: ^2.0.0
 
-
 flutter:
-
-
