@@ -143,3 +143,15 @@ AnimatedTextField(
   ),
 );
 ```
+
+
+## Contributors
+
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/deekshithx"><img src="https://avatars.githubusercontent.com/u/61501737?v=4" width="100px;" alt=""/><br /><sub><b>Deekshith Shetty</b></sub></a></td>
+    <td align="center"><a href="https://github.com/ftorregrossa"><img src="https://avatars.githubusercontent.com/u/22346938?v=4" width="100px;" alt=""/><br /><sub><b>
+Torregrossa François</b></sub></a></td>
+
+  </tr>
+</table>
