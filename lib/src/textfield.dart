@@ -1,6 +1,5 @@
 import 'dart:ui' as ui show BoxHeightStyle, BoxWidthStyle;
 
-
 import 'package:animated_hint_textfield/src/slide_animated_text.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/gestures.dart';
@@ -721,4 +720,4 @@ class AnimatedTextFieldState extends State<AnimatedTextField> {
   }
 }
 
-enum Animationtype { fade, slide,slideReversed, typer }
+enum Animationtype { fade, slide, slideReversed, typer }

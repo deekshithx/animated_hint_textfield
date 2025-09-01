@@ -17,7 +17,7 @@ class SlideAnimatedText extends AnimatedText {
     this.alignment = Alignment.center,
     this.textDirection = TextDirection.ltr,
     this.rotateOut = true,
-    this.slideFromTop = true, 
+    this.slideFromTop = true,
   }) : super(
           text: text,
           textAlign: textAlign,
@@ -33,8 +33,8 @@ class SlideAnimatedText extends AnimatedText {
     final direction = textDirection;
     final inIntervalEnd = rotateOut ? 0.4 : 1.0;
 
-
-    final entryBegin = slideFromTop ? Alignment.topCenter : Alignment.bottomCenter;
+    final entryBegin =
+        slideFromTop ? Alignment.topCenter : Alignment.bottomCenter;
     final exitEnd = slideFromTop ? Alignment.bottomCenter : Alignment.topCenter;
 
     _slideIn = AlignmentTween(
