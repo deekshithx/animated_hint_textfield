@@ -1,3 +1,5 @@
+## 1.1.1
+- Minor Fixes and Optimisation
 ## 1.1.0
 - ✨ Introduced `AnimationType.slideReversed` — lets text animate in the opposite direction (e.g., slide from bottom instead of top).
 - 📖 Improved README with clearer usage tips.
