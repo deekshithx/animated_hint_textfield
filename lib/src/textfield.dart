@@ -1,5 +1,7 @@
 import 'dart:ui' as ui show BoxHeightStyle, BoxWidthStyle;
 
+
+import 'package:animated_hint_textfield/src/slide_animated_text.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -68,7 +70,7 @@ class AnimatedTextField extends StatefulWidget {
     this.contentInsertionConfiguration,
     this.clipBehavior = Clip.hardEdge,
     this.restorationId,
-    this.scribbleEnabled = true,
+    this.stylusHandwritingEnabled = true,
     this.enableIMEPersonalizedLearning = true,
     this.contextMenuBuilder = _defaultContextMenuBuilder,
     this.canRequestFocus = true,
@@ -122,7 +124,7 @@ class AnimatedTextField extends StatefulWidget {
   ///Type of the label animation.
   ///
   ///```dart
-  /// Animation.slide, Animation.type, Animation.fade
+  /// Animation.slide, Animation.slideReversed, Animation.type, Animation.fade
   /// ```
   final Animationtype animationType;
 
@@ -509,8 +511,8 @@ class AnimatedTextField extends StatefulWidget {
   /// {@endtemplate}
   final String? restorationId;
 
-  /// {@macro flutter.widgets.editableText.scribbleEnabled}
-  final bool scribbleEnabled;
+  /// {@macro flutter.widgets.editableText.stylusHandwritingEnabled}
+  final bool stylusHandwritingEnabled;
 
   /// {@macro flutter.services.TextInputConfiguration.enableIMEPersonalizedLearning}
   final bool enableIMEPersonalizedLearning;
@@ -638,7 +640,7 @@ class AnimatedTextFieldState extends State<AnimatedTextField> {
         contentInsertionConfiguration: widget.contentInsertionConfiguration,
         clipBehavior: widget.clipBehavior,
         restorationId: widget.restorationId,
-        scribbleEnabled: widget.scribbleEnabled,
+        stylusHandwritingEnabled: widget.stylusHandwritingEnabled,
         enableIMEPersonalizedLearning: widget.enableIMEPersonalizedLearning,
         contextMenuBuilder: widget.contextMenuBuilder,
         canRequestFocus: widget.canRequestFocus,
@@ -682,8 +684,18 @@ class AnimatedTextFieldState extends State<AnimatedTextField> {
               textStyle: widget.hintTextStyle,
             );
           } else if (widget.animationType == Animationtype.slide) {
-            return RotateAnimatedText(
+            return SlideAnimatedText(
               text,
+              slideFromTop: true,
+              duration: widget.animationDuration,
+              alignment: Alignment.centerLeft,
+              textAlign: widget.hintTextAlign,
+              textStyle: widget.hintTextStyle,
+            );
+          } else if (widget.animationType == Animationtype.slideReversed) {
+            return SlideAnimatedText(
+              text,
+              slideFromTop: false,
               duration: widget.animationDuration,
               alignment: Alignment.centerLeft,
               textAlign: widget.hintTextAlign,
@@ -709,4 +721,4 @@ class AnimatedTextFieldState extends State<AnimatedTextField> {
   }
 }
 
-enum Animationtype { fade, slide, typer }
+enum Animationtype { fade, slide,slideReversed, typer }

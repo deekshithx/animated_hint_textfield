@@ -145,6 +145,17 @@ AnimatedTextField(
 ```
 
 
+### 💡 Tip
+By default, the animated hint text can span multiple lines if the text is long.
+If you want to keep the hint on a single line and show overflow with ellipses (...), set the overflow property in hintTextStyle:
+```dart
+hintTextStyle: TextStyle(
+  overflow: TextOverflow.ellipsis,
+),
+```
+
+
+
 ## Contributors
 
 <table>
