@@ -11,6 +11,8 @@ class AnimatedTextField extends StatefulWidget {
   AnimatedTextField({
     super.key,
     this.hintTexts = const [],
+    this.staticHintText,
+    this.staticHintTextPosition = StaticHintTextPosition.prefix,
     this.controller,
     this.hintTextAlign = TextAlign.start,
     this.hintTextStyle,
@@ -113,6 +115,16 @@ class AnimatedTextField extends StatefulWidget {
             (maxLines == 1 ? TextInputType.text : TextInputType.multiline),
         enableInteractiveSelection =
             enableInteractiveSelection ?? (!readOnly || !obscureText);
+
+  /// Text that remains visible while [hintTexts] animate.
+  ///
+  /// Useful for search prompts where only part of the hint should change, for
+  /// example `staticHintText: 'Search for '` with `hintTexts: ['Bengaluru']`.
+  final String? staticHintText;
+
+  /// Whether [staticHintText] appears before or after the animated hint text.
+  final StaticHintTextPosition staticHintTextPosition;
+
   final List<String> hintTexts;
   final TextMagnifierConfiguration? magnifierConfiguration;
   TextEditingController? controller;
@@ -653,7 +665,7 @@ class AnimatedTextFieldState extends State<AnimatedTextField> {
             ? null
             : FloatingLabelBehavior.never,
         label: widget.decoration.label ??
-            (widget.hintTexts.isEmpty
+            (!_hasHintText
                 ? null
                 : ValueListenableBuilder<bool>(
                     valueListenable: showHintValue,
@@ -663,13 +675,49 @@ class AnimatedTextFieldState extends State<AnimatedTextField> {
                       builder: (context, text, child) =>
                           text.isNotEmpty || !showHint
                               ? const SizedBox.shrink()
-                              : AnimatedTextKit(
-                                  repeatForever: true,
-                                  animatedTexts: _buildAnimatedTexts(),
-                                ),
+                              : _buildHintLabel(),
                     ),
                   )),
       );
+
+  bool get _hasHintText =>
+      widget.hintTexts.isNotEmpty ||
+      (widget.staticHintText?.isNotEmpty ?? false);
+
+  Widget _buildHintLabel() {
+    final staticHintText = widget.staticHintText;
+    final staticHint = staticHintText == null || staticHintText.isEmpty
+        ? null
+        : Text(
+            staticHintText,
+            style: widget.hintTextStyle,
+            textAlign: widget.hintTextAlign,
+          );
+    final animatedHint = widget.hintTexts.isEmpty
+        ? null
+        : AnimatedTextKit(
+            repeatForever: true,
+            animatedTexts: _buildAnimatedTexts(),
+          );
+
+    if (staticHint == null) {
+      return animatedHint ?? const SizedBox.shrink();
+    }
+
+    if (animatedHint == null) {
+      return staticHint;
+    }
+
+    final children =
+        widget.staticHintTextPosition == StaticHintTextPosition.prefix
+            ? <Widget>[staticHint, Flexible(child: animatedHint)]
+            : <Widget>[Flexible(child: animatedHint), staticHint];
+
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: children,
+    );
+  }
 
   List<AnimatedText> _buildAnimatedTexts() => widget.hintTexts.map(
         (text) {
@@ -721,3 +769,5 @@ class AnimatedTextFieldState extends State<AnimatedTextField> {
 }
 
 enum Animationtype { fade, slide, slideReversed, typer }
+
+enum StaticHintTextPosition { prefix, suffix }

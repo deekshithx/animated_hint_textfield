@@ -75,10 +75,11 @@ AnimatedTextField(
     ),
     contentPadding: EdgeInsets.all(12),
   ),
+  staticHintText: 'Search for ',
   hintTexts: [
-    'Search for "Bengaluru"',
-    'Search for "Mumbai"',
-    'Search for "Chennai"',
+    '"Bengaluru"',
+    '"Mumbai"',
+    '"Chennai"',
   ],
 );
 ```
@@ -146,6 +147,23 @@ AnimatedTextField(
 
 
 ### 💡 Tip
+Use `staticHintText` when part of the hint should stay fixed while only the animated part changes:
+```dart
+AnimatedTextField(
+  staticHintText: 'Search for ',
+  hintTexts: const ['Bengaluru', 'Mumbai', 'Chennai'],
+);
+```
+
+For suffix-style hints, set `staticHintTextPosition`:
+```dart
+AnimatedTextField(
+  staticHintText: ' nearby',
+  staticHintTextPosition: StaticHintTextPosition.suffix,
+  hintTexts: const ['Cafe', 'Hotel', 'Restaurant'],
+);
+```
+
 By default, the animated hint text can span multiple lines if the text is long.
 If you want to keep the hint on a single line and show overflow with ellipses (...), set the overflow property in hintTextStyle:
 ```dart

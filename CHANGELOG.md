@@ -1,3 +1,6 @@
+## 1.2.0
+- Added `staticHintText` and `staticHintTextPosition` for fixed prefix/suffix hint text around animated hint segments.
+
 ## 1.1.1
 - Minor Fixes and Optimisation
 ## 1.1.0
@@ -15,4 +18,3 @@
 - Optimisation and Updated README.
 ## 1.0.0
 - Initial Release.
-

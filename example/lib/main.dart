@@ -68,10 +68,11 @@ class _MyHomePageState extends State<MyHomePage> {
                       contentPadding: const EdgeInsets.all(12),
                     ),
                     animationType: Animationtype.slide,
+                    staticHintText: 'Search for ',
                     hintTexts: const [
-                      'Search for "Bengaluru"',
-                      'Search for "Mumbai"',
-                      'Search for "Chennai"',
+                      '"Bengaluru"',
+                      '"Mumbai"',
+                      '"Chennai"',
                     ]),
                 const Text(
                   "\n\n\nFade Animation",
@@ -107,6 +108,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   style: TextStyle(color: Colors.deepPurple),
                 ),
                 AnimatedTextField(
+                  staticHintTextPosition: StaticHintTextPosition.suffix,
                   animationType: Animationtype.typer,
                   hintTexts: const [
                     'Search "Flutter"',
