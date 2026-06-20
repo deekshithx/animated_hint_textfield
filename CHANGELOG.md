@@ -1,3 +1,6 @@
+## 1.3.0
+- Added `staticHintTextStyle` for independent styling of the static (non-animated) hint text portion, falling back to `hintTextStyle` when not set.
+
 ## 1.2.0
 - Added `staticHintText` and `staticHintTextPosition` for fixed prefix/suffix hint text around animated hint segments.
 

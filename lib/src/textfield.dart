@@ -16,6 +16,7 @@ class AnimatedTextField extends StatefulWidget {
     this.controller,
     this.hintTextAlign = TextAlign.start,
     this.hintTextStyle,
+    this.staticHintTextStyle,
     this.animationType = Animationtype.fade,
     this.animationDuration = const Duration(milliseconds: 1800),
     this.focusNode,
@@ -143,6 +144,11 @@ class AnimatedTextField extends StatefulWidget {
 
   ///TextStyle for animated label/hint.
   final TextStyle? hintTextStyle;
+
+  ///TextStyle for the static (non-animated) hint text portion.
+  ///
+  ///Falls back to [hintTextStyle] when null.
+  final TextStyle? staticHintTextStyle;
 
   /// Defines the keyboard focus for this widget.
   ///
@@ -690,7 +696,7 @@ class AnimatedTextFieldState extends State<AnimatedTextField> {
         ? null
         : Text(
             staticHintText,
-            style: widget.hintTextStyle,
+            style: widget.staticHintTextStyle ?? widget.hintTextStyle,
             textAlign: widget.hintTextAlign,
           );
     final animatedHint = widget.hintTexts.isEmpty
